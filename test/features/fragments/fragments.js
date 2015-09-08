@@ -27,14 +27,14 @@ var fragments = function (text)
     'use strict';
 
     var mapping = {
-        inputs: {
+        input: {
             search: element.bind(null, by.id('search')),
             first: element.bind(null, by.id('first')),
             last: element.bind(null, by.id('last')),
             age: element.bind(null, by.id('age')),
             email: element.bind(null, by.id('email')),
             phone: element.bind(null, by.id('phone'))
-        }, students: {
+        }, student: {
             table: element.bind(null, by.id('students')),
             firstName: element.bind(null, by.css('td:nth-of-type(1)')),
             lastName: element.bind(null, by.css('td:nth-of-type(2)')),

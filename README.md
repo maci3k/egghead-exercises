@@ -25,7 +25,9 @@ Your task is to make the `search` input field search through all categories. Eac
 * [angular filter](https://docs.angularjs.org/api/ng/filter/filter)
 
 ##Setup
- You should have installed `npm`, `bower`, `grunt-cli`  packages to run this example. To resolve dependencies run:
+ You should have `npm`, `bower`, `grunt-cli`  packages installed to run this example.
+ 
+###To resolve dependencies run:
 
 ```
 npm install
@@ -35,17 +37,34 @@ npm install
 bower install
 ```
 
-To run the application:
+###To run the application:
 
 ```
 grunt serve
 ```
 
-To run cucumber tests:
+###To test the application:
+
+You must install protractor as an admin: 
 
 ```
-grunt test
+npm install -g protractor
 ```
 
+```
+webdriver-manager update --standalone
+```
+        
+In order to test the application you must have `webdriver-manager` running in background.
+
+```
+webdriver-manager start
+```
+
+To run protractor tests:
+
+```
+npm run protractor
+```
 
 Good luck!
