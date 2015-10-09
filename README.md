@@ -25,14 +25,18 @@ Your task is to make the `search` input field search through all categories. Eac
 * [angular filter](https://docs.angularjs.org/api/ng/filter/filter)
 
 ##Setup
- You should have `npm`, `bower`, `grunt-cli`  packages installed to run this example.
  
 ###To install dependencies 
 
-    npm install && bower install
+ ```
+ npm install
+ ```
+ 
+ ```
+ bower install
+ ```
 
-
-###To start application in live reload mode:
+###To start application in live reload mode
 
     grunt serve
     
