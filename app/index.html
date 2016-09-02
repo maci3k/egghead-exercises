@@ -22,24 +22,24 @@
         <tr>
             <td>quote</td>
             <td>{{data.citation}}</td>
-            <td id="quote"></td>
+            <td id="quote">{{data.citation|quote}}</td>
         </tr>
         <tr>
             <td>withoutH</td>
             <td>{{data.title}}</td>
-            <td id="withoutH"></td>
+            <td id="withoutH">{{data.title|withoutH}}</td>
         </tr>
         <tr>
             <td>firstLetterUp</td>
             <td>{{data.someText}}</td>
-            <td id="firstLetterUp"></td>
+            <td id="firstLetterUp">{{data.someText|firstLetterUp}}</td>
         </tr>
         </tbody>
     </table>
     <div>
         <label class="label label-default">... and I repeat it in capitals </label>
 
-        <h3>Input</h3>
+        <h3>{{data.tellMe.toUpperCase()}}</h3>
     </div>
 </div>
 
