@@ -24,20 +24,20 @@
             <input type="radio" id="two" ng-model="limit" value="10">
 
             <label for="three" class="label label-default">15</label>
-            <input type="radio" id="three" ng-model="limit" value="15" checked>
+            <input type="radio" id="three" ng-model="limit" value="15">
 
         </div>
         <table id="users" class="table table-hover table-bordered">
             <thead>
             <tr>
-                <th class="text-center"><a href="" ng-click="choice = 'id'">Id</a></th>
-                <th class="text-center"><a href="" ng-click="choice = 'username'">UserName</a></th>
-                <th class="text-center"><a href="" ng-click="choice = 'fullName'">Full Name</a></th>
-                <th class="text-center"><a href="" ng-click="choice = 'gender'">Gender</a></th>
+                <th class="text-center"><a href="" ng-click="reverse('id')">Id</a></th>
+                <th class="text-center"><a href="" ng-click="reverse('username')">UserName</a></th>
+                <th class="text-center"><a href="" ng-click="reverse('fullName')">Full Name</a></th>
+                <th class="text-center"><a href="" ng-click="reverse('gender')">Gender</a></th>
             </tr>
             </thead>
             <tbody>
-            <tr class="text-center" ng-repeat="user in users.list | filter: searchUser">
+            <tr class="text-center" ng-repeat="user in users.list | filter:searchUser | orderBy:choice | limitTo:limit">
                 <td>{{user.id}}</td>
                 <td>{{user.username}}</td>
                 <td>{{user.fullName}}</td>

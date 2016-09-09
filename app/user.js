@@ -91,5 +91,25 @@
     app.controller('UserCtrl', function ($scope, Users)
     {
         $scope.users = Users;
+        $scope.limit = 15;
+        $scope.choice = 'id';
+        $scope.searchUser = '';
+        $scope.propertyName = '';
+
+        $scope.reverse = function(propertyName) {
+            if($scope.choice === propertyName) {
+                $scope.choice = '-' + propertyName;
+            } else {
+                $scope.choice = propertyName;
+            }
+
+            /*if(reverse) {
+                reverse = false;
+            } else {
+                $scope.choice = '-' + $scope.choice;
+                reverse = true;
+            }
+            return $scope.choice;*/
+        };
     });
 })();
