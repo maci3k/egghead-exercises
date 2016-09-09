@@ -2,6 +2,24 @@
 {
     'use strict';
 
-    angular.module('app', []);
+    var app = angular.module('app', []);
 
+    app.directive('hero', function () {
+        return {
+            restrict: 'E',
+            template: '<img src="assets/images/hero.png" class="hero-position" width="300px">'
+        };
+    });
+    app.directive('mask', function () {
+        return {
+            restrict: 'E',
+            template: '<img src="assets/images/mask.png" class="mask-position" width="62px">'
+        };
+    });
+    app.directive('superhero', function () {
+        return {
+            restrict: 'E',
+            template: '<div class="relative-position"><hero></hero><mask></mask></div>'
+        };
+    });
 })();
