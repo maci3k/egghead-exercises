@@ -17,4 +17,32 @@
         };
     }]);
 
+    app.directive('restrictE', function() {
+        return {
+            restrict: 'E',
+            template: '{{description.element.name}}: {{description.element.call}}'
+        };
+    });
+
+    app.directive('restrictA', function() {
+        return {
+            restrict: 'A',
+            template: '{{description.attribute.name}}: {{description.attribute.call}}'
+        };
+    });
+
+    app.directive('restrictC', function() {
+        return {
+            restrict: 'C',
+            template: '{{description.class.name}}: {{description.class.call}}'
+        };
+    });
+
+    app.directive('restrictM', function() {
+        return {
+            restrict: 'M',
+            template: alert('Restrict M: working...')
+        };
+    });
+
 })();
