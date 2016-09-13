@@ -46,13 +46,13 @@
             <div class="row">
                 <div class="col-md-offset-1 col-md-10">
                     <div id="boat1">
-                        <!--Add first ship here-->
+                        <ship-sender custom-check="checkMyBoat(boat, currentConditions)" conditions="{{weatherConditions.getCurrentConditions()}}"></ship-sender>
                     </div>
                     <div id="boat2">
-                        <!--Add second ship here-->
+                        <ship-sender custom-check="checkMyBoat(boat, currentConditions)" conditions="{{weatherConditions.getCurrentConditions()}}"></ship-sender>
                     </div>
                     <div id="boat3">
-                        <!--Add third ship here-->
+                        <ship-sender custom-check="checkMyBoat(boat, currentConditions)" conditions="{{weatherConditions.getCurrentConditions()}}"></ship-sender>
                     </div>
                 </div>
             </div>
