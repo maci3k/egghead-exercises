@@ -20,17 +20,20 @@
         <div class="col-md-4 text-center">
             <p class="label-success">Add petal</p>
 
-            <div class="square bg-success center-block"></div>
+            <div class="square bg-success center-block" enter="addPetal()">
+            </div>
         </div>
 
         <div class="col-md-4 text-center">
             <p class="label-danger">Remove petal</p>
 
-            <div class="square bg-danger center-block"></div>
+            <div class="square bg-danger center-block" enter="removePetal()"></div>
+            </div>
         </div>
 
         <div class="col-md-4 text-center">
             <p class="label-info">Let it snow!</p>
+                <span ng-repeat="snowflake in snow track by $index" id="petal" class="glyphicon glyphicon-star">*</span>
         </div>
     </div>
 
