@@ -14,10 +14,12 @@
     </div>
     <div class="col-md-6" id="cakes">
         <h3>Cakes</h3>
+        <order-component products="{{cakes}}" function="buyProduct(product)"></order-component>
         <!--order component with using *cakes* as products-->
     </div>
     <div class="col-md-6" id="sweets">
         <h3>Sweets</h3>
+        <order-component products="{{sweets}}" function="buyProduct(product)"></order-component>
         <!--order component with using *sweets* as products-->
     </div>
     <div class="col-md-offset-3 col-md-6">

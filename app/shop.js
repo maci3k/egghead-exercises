@@ -32,9 +32,15 @@
     app.directive('orderComponent', function ()
     {
         var template = '<div class="panel panel-success text-center"><p class="panel-heading"><strong>I want to buy:</strong></p><div class="panel-body">' +
-                '<select class="form-control form-group"><!--select element--></select>' +
-                '<div id="buyButton" class="btn btn-success"><!--the bottom div-->Buy!</div></div></div>';
+                '<select class="form-control form-group" ng-options="product.name for product in {{products}}" ng-model="products"><!--select element-->' +
+                '</select>' +
+                '<div id="buyButton" class="btn btn-success" ng-click="function({product:products.name})"><!--the bottom div-->Buy!</div></div></div>';
         return {
+            restrict: 'E',
+            scope: {
+                function: '&',
+                products: '@'
+            },
             template: template
         };
     });
