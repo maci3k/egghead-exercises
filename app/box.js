@@ -15,7 +15,12 @@
     {
         return {
             restrict: 'E',
-            scope: {},
+            scope: {
+                size: '@',
+                color: '=',
+                open: '@',
+                showDetails: '&'
+            },
 
             templateUrl: 'boxTemplate.html',
 
