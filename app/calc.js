@@ -2,8 +2,11 @@
 
 var calcApp = angular.module('calcApp', []);
 
-calcApp.controller('SumCtrl', function ($scope)
-{
+var calcAppElements = {};
+calcAppElements.controllers = {};
+calcAppElements.directives = {};
+
+calcAppElements.controllers.SumCtrl = function($scope) {
     this.firstNumberSum = 5;
     this.secondNumberSum = 2;
 
@@ -13,11 +16,9 @@ calcApp.controller('SumCtrl', function ($scope)
     };
 
     $scope.SumCtrl = this;
+};
 
-});
-
-calcApp.controller('SubCtrl', function ($scope)
-{
+calcAppElements.controllers.SubCtrl = function($scope) {
     this.firstNumberSub = 12;
     this.secondNumberSub = 1;
 
@@ -26,11 +27,9 @@ calcApp.controller('SubCtrl', function ($scope)
         this.sub = a - b;
     };
     $scope.SubCtrl = this;
+};
 
-});
-
-calcApp.controller('MultiCtrl', function ($scope)
-{
+calcAppElements.controllers.MultiCtrl = function($scope) {
     $scope.firstNumberMult = 12;
     $scope.secondNumberMult = 2;
 
@@ -38,10 +37,9 @@ calcApp.controller('MultiCtrl', function ($scope)
     {
         $scope.multi = a * b;
     };
-});
+};
 
-calcApp.controller('DivideCtrl', function ($scope)
-{
+calcAppElements.controllers.DivideCtrl = function($scope) {
     $scope.firstNumberDiv = 15;
     $scope.secondNumberDiv = 5;
 
@@ -49,24 +47,24 @@ calcApp.controller('DivideCtrl', function ($scope)
     {
         $scope.divid = (a / b).toFixed(2);
     };
-});
+};
 
-calcApp.directive('multi', function ()
-{
+calcAppElements.directives.multi = function() {
     return {
         restrict: 'E', scope: {
             a: '@', b: '@', solve: '&'
         }, template: ' <div id="multiButton" class="btn btn-info" ng-click="solve({a : a, b: b})">Multiple</div>'
 
     };
-});
+};
 
-calcApp.directive('divide', function ()
-{
+calcAppElements.directives.divide = function() {
     return {
         restrict: 'A', scope: {
             a: '@', b: '@', solve: '&'
         }, template: '<div id="divideButton" class="btn btn-default" ng-click="solve({a : a, b: b})">Divide</div>'
     };
-});
+};
 
+calcApp.directive(calcAppElements.directives);
+calcApp.controller(calcAppElements.controllers);
