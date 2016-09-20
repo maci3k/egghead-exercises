@@ -46,6 +46,7 @@
         return {
             restrict: 'E',
             replace: true,
+            scope: {},
             template: '<div> <input id="separate" class="form-control" type="text" ng-model="input"></div>',
             link: function (scope)
             {
