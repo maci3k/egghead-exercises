@@ -4,7 +4,27 @@
 
     var app = angular.module('app', ['ngRoute']);
 
-    // add routing
+    app.config(function ($routeProvider) {
+        $routeProvider
+            .when('/',
+            {
+                templateUrl: 'views/home.html',
+                controller: 'homeCtrl'
+            })
+            .when('/details/:brand/:capacity',
+            {
+                templateUrl: 'views/details.html',
+                controller: 'routeCtrl',
+                redirectTo: function(routeParams) {
+                    if(routeParams.brand === 'spy' || routeParams.capacity === 'spy') {
+                        return '/' + 'secret';
+                    }
+                }
+            })
+            .when('/secret', {
+                templateUrl: 'views/secret.html'
+            });
+    });
 
     app.controller('homeCtrl', function ($scope)
     {
