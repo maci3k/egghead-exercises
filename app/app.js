@@ -2,9 +2,20 @@
 {
     'use strict';
 
-    var app = angular.module('app', []);
+    var app = angular.module('app', ['ngRoute']);
 
-    //add routing
+    app.run(function ($templateCache, $http) {
+        $http.get('home.html', {cache: $templateCache});
+    });
+
+    app.config(function ($routeProvider) {
+        $routeProvider.when('/',
+            {
+                controller: 'RouteCtrl',
+                templateUrl: 'home.html'
+            }
+        );
+    });
 
     app.controller('RouteCtrl', function ($scope)
     {
