@@ -3,9 +3,8 @@
     'use strict';
     var app = angular.module('app', []);
 
-    app.run(function ()
+    app.run(function ($templateCache)
     {
-        //put templates to $templateCache
         var template = [];
         template[0] = '<div id="default"><div>Default template:</div><h3 id="defaultContent">{{order}} x {{quantity}}</h3></div>';
         template[1] =
@@ -16,6 +15,10 @@
                 '<div id="table"><h4>Table template:</h4><table id="tableContent" class="table table-bordered"><thead><tr>' +
                 '<th class="text-center">Order</th><th class="text-center">Quantity</th></tr></thead>' +
                 '<tbody><tr><td>{{order}}</td><td>{{quantity}}</td></tr></tbody></table></div>';
+        //put templates to $templateCache
+        $templateCache.put('default', template[0]);
+        $templateCache.put('button', template[1]);
+        $templateCache.put('table', template[2]);
     });
 
     app.controller('urlCtrl', function ($scope)
@@ -24,18 +27,23 @@
         $scope.quantity = 12;
 
     });
-    app.directive('url', function ($compile)
+    app.directive('url', function ($templateCache, $compile)
     {
         var link = function (scope, element)
         {
+            var template = '';
             //watch input change
-            scope.$watch(function ()
+            scope.$watch('template', function (value)
             {
-
+                if(value !== 'table' && value !== 'button') {
+                    template = $templateCache.get('default');
+                } else {
+                    template = $templateCache.get(value);
+                }
+                element.html(template);
+                $compile(element.contents())(scope);
             }, function ()
             {
-
-                $compile(element.contents())(scope);
             });
             scope.isContentVisible = false;
 
@@ -50,7 +58,8 @@
             replace: true,
             scope: {
                 order: '@',
-                quantity: '@'
+                quantity: '@',
+                template: '@'
             },
             link: link
         };
