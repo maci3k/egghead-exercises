@@ -16,7 +16,7 @@
     <div class="col-md-offset-4 col-md-4">
         <label for="forWhat" class="label label-default">For what</label>
         <input id="forWhat" type="text" class="form-control" ng-model="forWhat" placeholder="For poor pets">
-        <money>
+        <money how-many="proposal" for-what="{{forWhat}}">
             <p id="proposal">I want to devote: {{proposal | currency}}</p>
         </money>
     </div>
